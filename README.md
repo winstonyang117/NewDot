@@ -31,11 +31,14 @@ Choose "3. Interface Options" -> "Serial Port" -> enable
   sudo raspi-config
 ```
 
-Now, /dev/ttyS0 should appear. Test this command and you should see the data in the displayed Grafana URL by the code:
+Now, /dev/ttyS0 should appear. Then, **delete the stuff like "console=serial0, 115200", and reboot.**
 
+
+Test this command and you should see the data in the displayed Grafana URL by the code:
 ```
 sudo python3 serialClient_final.py /dev/ttyS0
 ```
+
 
 **Step 3: Setup the NewDot service**
 
