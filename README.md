@@ -31,7 +31,11 @@ Choose "3. Interface Options" -> "Serial Port" -> enable
   sudo raspi-config
 ```
 
-Now, /dev/ttyS0 should appear. Then, **delete the stuff like "console=serial0, 115200", and reboot.**
+MAKE SURE you have modified the default setting of serial port, this can be finished by the command below:
+```
+sudo vim /boot/cmdline.txt
+```
+Then, delete the stuff like **"console=serial0, 115200", and reboot.**
 
 
 Test this command and you should see the data in the displayed Grafana URL by the code:
