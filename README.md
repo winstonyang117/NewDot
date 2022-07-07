@@ -61,3 +61,12 @@ Then append the following lines in cronjobs:
   */5 * * * * /home/pi/NewDot/run.sh
   @reboot /home/pi/NewDot/run.sh
 ```
+**Alternative way: use "rc.local"**
+MAKE SURE you have commened all the continuous print, otherwise you can exit or kill the program!!
+```
+sudo nano /etc/rc.local
+```
+Then add the following command before "exit 0", **modify the file path if needed**
+```
+sudo python3 /home/pi/NewDot/serialClient_final.py /dev/ttyS0 & > /home/pi/NewDot/log.txt 2>&1
+```
