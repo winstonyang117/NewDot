@@ -62,7 +62,8 @@ Then append the following lines in cronjobs:
   @reboot /home/pi/NewDot/run.sh
 ```
 **Alternative way: use "rc.local"**
-MAKE SURE you have commened all the continuous print, otherwise you can exit or kill the program!!
+
+MAKE SURE you have commened all the continuous prints in your program, otherwise you cannot exit or kill the program!!
 ```
 sudo nano /etc/rc.local
 ```
