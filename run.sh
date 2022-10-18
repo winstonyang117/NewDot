@@ -3,10 +3,12 @@ now=$(date +"%T")
 SERVICE="python3"
 
 sudo /usr/bin/python3 /home/pi/NewDot/test.py
-ip_wlan0=$(ip addr show wlan0|grep inet|grep -v inet6|awk '{print $2}'|awk '{split($0,a,"/"); print a[1]}')
+ip_wlan0=$(ip addr show wlan0|grep link/ether|grep -v inet6|awk '{print $2}'|awk '{split($0,a,"/"); print a[1]}')
+# ip_wlan0="b8:27:eb:9f:7f:0a"
 serial_port="/dev/ttyS0"
-sudo /usr/bin/python3 /home/pi/NewDot/seismoBridge.py $serial_port
+sudo /usr/bin/python3 /home/pi/NewDot/serialClient_final.py $serial_port &
 sudo /usr/bin/python3 /home/pi/BDotAI/src/algtest_noRaw.py $ip_wlan0
+
 
 
 if pgrep -x "$SERVICE" >/dev/null
